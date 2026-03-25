@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - MoodFlix</title>
+
+<style>
+
+/* BODY BACKGROUND WITH MOVIE IMAGES */
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Movie images + dark overlay */
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+              url("https://images.unsplash.com/photo-1517602302552-471fe67acf66");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation: zoomBg 20s infinite alternate;
+  color: white;
+}
+
+/* Background zoom animation */
+@keyframes zoomBg {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 110%;
+  }
+}
+
+/* BOX DESIGN (same style improved) */
+.box {
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  padding: 50px 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* TITLE */
+.box h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #7df9ff;
+  text-shadow: 0 0 15px rgba(125, 249, 255, 0.8);
+}
+
+/* BUTTON STYLE */
+button {
+  display: block;
+  width: 220px;
+  margin: 15px auto;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  background: #7df9ff;
+  color: #0f0c29;
+  box-shadow: 0 4px 15px rgba(125, 249, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+button:hover {
+  background: #50e3e0;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(125, 249, 255, 0.6);
+}
+
+/* CLICK EFFECT */
+button:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 15px rgba(125, 249, 255, 0.4);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Welcome to MoodFlix 🎬</h2>
+
+  <button onclick="oldUser()">Old User Login</button>
+  <button onclick="newUser()">New User Register</button>
+</div>
+
+<script>
+function oldUser(){
+  window.location.href="olduser.html";
+}
+
+function newUser(){
+  window.location.href="register.html";
+}
+</script>
+
+</body>
+</html>

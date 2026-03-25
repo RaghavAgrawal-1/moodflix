@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MoodFlix</title>
+
+<style>
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+/* BACKGROUND WITH MOVIE IMAGE */
+body{
+  height:100vh;  
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+              url("https://images.unsplash.com/photo-1517602302552-471fe67acf66");
+
+  background-size:cover;
+  background-position:center;
+
+  animation: zoomBg 20s infinite alternate;
+}
+
+/* ZOOM EFFECT */
+@keyframes zoomBg{
+  from{ background-size:100%; }
+  to{ background-size:110%; }
+}
+
+/* CONTAINER */
+.container{
+  text-align:center;
+  background: rgba(0,0,0,0.5);
+  padding:60px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.7);
+
+  animation: fadeIn 1.5s ease;
+}
+
+/* TITLE */
+h1{
+  font-size:70px;
+  margin-bottom:15px;
+  color:#7df9ff;
+  text-shadow:0 0 20px #7df9ff;
+}
+
+/* SUBTEXT */
+p{
+  font-size:18px;
+  color:#ccc;
+  margin-bottom:30px;
+}
+
+/* BUTTON */
+button{
+  padding:15px 40px;
+  font-size:18px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:#7df9ff;
+  color:black;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+/* HOVER */
+button:hover{
+  background:#50e3e0;
+  transform:scale(1.1);
+  box-shadow:0 0 20px #7df9ff;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(20px);}
+  to{ opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>MoodFlix 🎬</h1>
+
+<p>Movie Recommendation Based On Your Mood</p>
+
+<button onclick="goLogin()">Get Started</button>
+
+</div>
+
+<script>
+
+function goLogin(){
+  window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>
