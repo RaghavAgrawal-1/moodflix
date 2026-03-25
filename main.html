@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MoodFlix</title>
+
+<style>
+
+/* --- Reset --- */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+/* --- BODY WITH MOVIE BACKGROUND --- */
+body{
+  height:100vh;
+  color:white;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  overflow-x:hidden;
+
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+              url("https://images.unsplash.com/photo-1517602302552-471fe67acf66");
+
+  background-size:cover;
+  background-position:center;
+  animation: zoomBg 20s infinite alternate;
+}
+
+/* ZOOM EFFECT */
+@keyframes zoomBg{
+  from{ background-size:100%; }
+  to{ background-size:110%; }
+}
+
+/* --- NAVBAR --- */
+.navbar{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  position: fixed;
+  top:0;
+  left:0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+}
+
+.logo{
+  font-size:28px;
+  color:#7df9ff;
+  font-weight:bold;
+  text-shadow:0 0 10px #7df9ff;
+}
+
+.logout{
+  background:#7df9ff;
+  border:none;
+  padding:8px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.logout:hover{
+  background:#50e3e0;
+  transform:scale(1.1);
+  box-shadow:0 0 10px #7df9ff;
+}
+
+/* --- HERO --- */
+.hero{
+  text-align:center;
+  margin-top:140px;
+}
+
+.hero h1{
+  font-size:60px;
+  margin-bottom:10px;
+  animation: fadeDown 1.2s ease forwards;
+  text-shadow:0 0 20px rgba(0,0,0,0.8);
+}
+
+.hero p{
+  color:#ccc;
+  margin-bottom:50px;
+  font-size:18px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* --- MOOD BUTTONS --- */
+.mood-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+  gap:30px;
+  padding:0 20px;
+}
+
+/* BUTTON STYLE */
+button{
+  padding:18px;
+  border:none;
+  border-radius:20px;
+  background: linear-gradient(135deg, #7df9ff, #50e3e0);
+  color:#0a0a0a;
+  font-size:18px;
+  cursor:pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+
+  animation: float 3s ease-in-out infinite;
+}
+
+/* HOVER */
+button:hover{
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 25px #7df9ff;
+}
+
+/* FLOAT */
+@keyframes float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-15px); }
+}
+
+/* FADE ANIMATIONS */
+@keyframes fadeDown{
+  from{ opacity:0; transform:translateY(-40px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">MoodFlix 🎬</div>
+  <button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<div class="hero">
+  <h1>Select Your Mood</h1>
+  <p>Get movie recommendations based on your mood</p>
+
+  <div class="mood-container">
+    <button onclick="sendMood('happy')">😊 Happy</button>
+    <button onclick="sendMood('sad')">😢 Sad</button>
+    <button onclick="sendMood('romantic')">❤️ Romantic</button>
+    <button onclick="sendMood('excited')">🔥 Excited</button>
+    <button onclick="sendMood('depressed')">😞 Depressed</button>
+    <button onclick="sendMood('relaxed')">😌 Relaxed</button>
+  </div>
+</div>
+
+<script>
+
+function sendMood(mood){
+  localStorage.setItem("mood", mood);
+  window.location.href = "movies.html";
+}
+
+function logout(){
+  window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>
